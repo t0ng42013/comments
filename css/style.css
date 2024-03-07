@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+
+:root {
+  --ModerateBlue: hsl(238, 40%, 52%);
+  --SoftRed: hsl(358, 79%, 66%);
+  --LightGrayishBlue: hsl(239, 57%, 85%);
+  --PaleRed: hsl(357, 100%, 86%);
+
+  --Dark_blue: hsl(212, 24%, 26%);
+  --Grayish_Blue: hsl(211, 10%, 45%);
+  --Light_gray: hsl(223, 19%, 93%);
+  --Very_light_gray: hsl(228, 33%, 97%);
+  --White: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rubik";
+}
+
+body {
+  background-color: var(--Very_light_gray);
+  min-width: 375px;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--Grayish_Blue);
+  justify-content: center;
+  padding-top: 60px;
+}
+
+.containerSend{
+  max-width:  732px;
+  width: 100%;
+}
+/* .secttion{
+    display: flex;
+    border: solid;
+} */
+.feedback-card {
+  max-width: 732px;
+  width: 100%;
+  /* height: 165px; */
+  background-color: var(--White);
+  margin: 10px 0;
+  padding: 25px;
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  border-radius: 10px;
+}
+
+.feedback-score label {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.feedback-score input {
+  background-color: var(--Very_light_gray);
+  color: var(--ModerateBlue);
+  font-weight: 500;
+  height: 100px;
+  width: 35px;
+  text-align: center;
+  border: none;
+  cursor: default;
+}
+
+.feedback-score label button {
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--ModerateBlue);
+
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  margin: 8px 0;
+  cursor: pointer;
+}
+.feedback-score label button:nth-child(1) {
+  bottom: 0;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.feedback-content {
+  width: 100%;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-details {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.info-details img {
+  width: 32px;
+}
+
+.info-details span {
+  font-weight: 500;
+  color: var(--Dark_blue);
+}
+
+.info-details p {
+  font-size: 14px;
+}
+
+.feedback-description {
+  line-height: 1.5rem;
+  margin-right: 40px;
+}
+
+.reply-section {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reply-btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--LightGrayishBlue);
+}
+/* - Family: [Rubik](https://fonts.google.com/specimen/Rubik)
+- Weights: 400, 500, 700 */
+
+.reply-feedback {
+  margin-top: 10px;
+  height: 150px;
+}
+
+.replay-info {
+  align-items: self-start;
+}
+
+.info-response {
+  border: solid 1px var(--ModerateBlue);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  overflow: hidden;
+
+  p {
+    color: var(--Dark_blue);
+  }
+}
+
+.reply-response {
+  background-color: var(--ModerateBlue);
+  color: var(--White);
+  padding: 14px 23px;
+  border-radius: 8px;
+}
+
+.section-replay {
+  border-left: solid 1px var(--Light_gray);
+  margin-left: 45px;
+  padding-left: 45px;
+  max-width: calc(732px - 44px);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.reply-description {
+  width: 100%;
+}
+
+.delete {
+  color: var(--SoftRed);
+  margin-right: 10px;
+  font-size: 16px;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    transition: all 0.3s;
+  }
+}
+
+.edit {
+  font-size: 16px;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    transition: all 0.3s;
+  }
+}
+
+.update-btn {
+  margin-left: auto;
+  margin-right: 0;
+  display: block;
+  align-items: flex-end;
+}
+
+.update .info-response {
+  padding: 10px 20px;
+  min-height: 80px;
+}
