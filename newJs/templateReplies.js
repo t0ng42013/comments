@@ -1,5 +1,6 @@
-import { handleredit } from "./handleredit";
-import { rendeData } from "./rendeData";
+import Context from "./toggleBoolean.js";
+
+
 
 export default function templateReplies(replies, currentUser) {
   const { content, createdAt, score, user, id } = replies;
@@ -8,8 +9,9 @@ export default function templateReplies(replies, currentUser) {
   let isCurrentUser = false; // Establecer un valor predeterminado
 
   isCurrentUser = currentUser === user.username;
-  let body = handleredit();
-  
+
+
+
   return `
       ${
         isCurrentUser
@@ -49,7 +51,7 @@ export default function templateReplies(replies, currentUser) {
                             </div>
                              <div class="feedback-description reply-description reply-update">
                              ${
-                               body
+                               Context.state
                                  ? `<p>${content}</p>`
                                  : `<textarea style="width: 90%;height: 100px;resize: none;">${content}</textarea>                      <button class="reply-btn update-btn reply-response " >Update</button>`
                              }         

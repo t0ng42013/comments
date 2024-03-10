@@ -21,8 +21,6 @@ export const handlerSend = (value, container, datos) => {
     },
   };
  
-
-
   const newResponse = document.createElement("section");
   newResponse.classList.add("user-main-card");
   newResponse.innerHTML = `
@@ -57,9 +55,7 @@ export const handlerSend = (value, container, datos) => {
                             </div>
                             <div class="feedback-description">
                               <p>${newUsername.content}</p>
-                              <textarea></textarea>
-                              <button class="reply-btn update-btn reply-response " >Update</button>
-
+                                                       
                             </div>
                           </div>
                         </div>

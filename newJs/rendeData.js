@@ -4,8 +4,10 @@ import { templateWrite } from "./templateWrite.js";
 import { handlerSend } from "./handlerSend.js";
 import { handlerDelete } from "./handlerDelete.js";
 import { handleredit } from "./handleredit.js";
+import { handlerUpdate } from "./handlerUpdate.js";
 
 export const rendeData = (datos) => {
+
     console.log(datos)
     const container = document.querySelector(".container");
     const containerSend = document.querySelector(".containerSend");
@@ -24,15 +26,34 @@ export const rendeData = (datos) => {
     
     btnSend.addEventListener("click", ()=>handlerSend(txtValueSend.value, container, datos.comments));
 
-    document.body.addEventListener('click', (e)=> {
+    
+    
+    document.body.addEventListener('click', ({target})=> {
         const deleteButton = Array.from(document.querySelectorAll(".delete"));
         const editButton = Array.from(document.querySelectorAll(".edit"));
-       
-        deleteButton.forEach(btn => btn.addEventListener("click", (e) => handlerDelete(e)));
-        editButton.forEach(btn => btn.addEventListener("click", (e) => handleredit(e)));
+        const update = Array.from(document.querySelectorAll(".update-btn"));
         
-              
+        editButton.forEach(btn => btn.addEventListener("click", handleredit));
+
+       const dataID = target.getAttribute("data-id");
+       const contenedorID = document.getElementById(dataID);
+       
+      if (contenedorID){
+        let inputt = contenedorID.querySelector("textarea");
+        if(inputt){
+            console.dir(inputt)
+           inputt.addEventListener('input', (e)=> {
+            inputt = e.target.value
+           })
+    
+           update.forEach(btn => btn.addEventListener("click",(e)=> handlerUpdate(e,inputt)));
+        };
+        }        
+        
+      deleteButton.forEach(btn => btn.addEventListener("click", handlerDelete));      
+        
+       
     });
     
-    
+      
 };
