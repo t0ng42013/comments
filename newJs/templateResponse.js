@@ -24,7 +24,7 @@ export const templateResponse = (value) => {
   return ` 
    <div class="feedback-card reply-feedback">
       <div class="info-details replay-info">
-        <img src="./assets/avatars/image-juliusomo.webp" alt="" />
+        <img src="./assets/avatars/image-juliusomo.webp" alt="foto perfil" />
       </div>
       <textarea class="info-response">@${user},${switchResult} 
       </textarea>

@@ -1,14 +1,14 @@
 import Context from "./toggleBoolean.js";
 
 
-export const handlerUpdate = ({target},valor="") => {
-  console.log(target);
+export const handlerUpdate = ({target},valor) => {
+ valor = valor.value
+ console.log(valor)
+console.log(typeof(valor))
   const id = target.getAttribute("data-id");
   const element = document.getElementById(id);
 
-console.log(valor)
 
- 
 
   // Cambiar el estado del cuerpo del contexto
   Context.toggleBodyState().then(() => {

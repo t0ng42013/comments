@@ -21,12 +21,11 @@ export const handlerReply = (id, con) => {
       const contenedor3 = arrayContenedores[1];
       contenedor3.children.length
         ? (contenedor3.innerHTML = "")
-        : (contenedor3.innerHTML = templateResponse(id),console.dir(contenedor3));
+        : (contenedor3.innerHTML = templateResponse(id));
       break;
     
 
     default:
-      return;
       break;
   }
 

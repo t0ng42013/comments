@@ -5,6 +5,7 @@ import { handlerSend } from "./handlerSend.js";
 import { handlerDelete } from "./handlerDelete.js";
 import { handleredit } from "./handleredit.js";
 import { handlerUpdate } from "./handlerUpdate.js";
+import { handlerResponse } from "./handlerResponse.js";
 
 export const rendeData = (datos) => {
 
@@ -33,27 +34,34 @@ export const rendeData = (datos) => {
         const editButton = Array.from(document.querySelectorAll(".edit"));
         const update = Array.from(document.querySelectorAll(".update-btn"));
         
+        
         editButton.forEach(btn => btn.addEventListener("click", handleredit));
-
-       const dataID = target.getAttribute("data-id");
-       const contenedorID = document.getElementById(dataID);
-       
-      if (contenedorID){
-        let inputt = contenedorID.querySelector("textarea");
-        if(inputt){
-            console.dir(inputt)
-           inputt.addEventListener('input', (e)=> {
-            inputt = e.target.value
-           })
-    
-           update.forEach(btn => btn.addEventListener("click",(e)=> handlerUpdate(e,inputt)));
-        };
-        }        
         
-      deleteButton.forEach(btn => btn.addEventListener("click", handlerDelete));      
+        const dataID = target.getAttribute("data-id");
+        const contenedorID = document.getElementById(dataID);
         
-       
+        if (contenedorID){
+          let inputTArea = contenedorID.querySelector("textarea");
+          const btnResponse = contenedorID.querySelector(".reply-response");
+        
+          console.log(inputTArea,btnResponse);
+         
+            if(btnResponse){
+              btnResponse.addEventListener("click",()=> handlerResponse(dataID,container,datos,inputTArea));
+              
+            }
+            if(inputTArea){
+              
+                inputTArea.addEventListener('input', (e)=> {
+                inputTArea = e.target.value
+              })  
+               update.forEach(btn => btn.addEventListener("click",(e)=> handlerUpdate(e,inputTArea)));
+               
+            };
+        
+          }        
+        
+        deleteButton.forEach(btn => btn.addEventListener("click", handlerDelete)); 
     });
-    
-      
+     
 };
