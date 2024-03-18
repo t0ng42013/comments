@@ -18,6 +18,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Rubik";
+  font-size: 16px;
 }
 
 body {
@@ -32,8 +33,8 @@ body {
   padding-top: 60px;
 }
 
-.containerSend{
-  max-width:  732px;
+.containerSend {
+  max-width: 732px;
   width: 100%;
 }
 /* .secttion{
@@ -134,14 +135,23 @@ button:active {
   gap: 5px;
 }
 
-.reply-btn {
+.reply-btn,
+.edit,
+.delete {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 18px;
-  color: var(--LightGrayishBlue);
+  color: var(--ModerateBlue);
+
+  &:hover {
+    cursor: pointer;
+    color: var(--LightGrayishBlue);
+    transition: all 0.3s;
+  }
 }
+
 /* - Family: [Rubik](https://fonts.google.com/specimen/Rubik)
 - Weights: 400, 500, 700 */
 
@@ -166,11 +176,19 @@ button:active {
   }
 }
 
-.reply-response {
+.reply-response,
+#btnSend {
   background-color: var(--ModerateBlue);
   color: var(--White);
   padding: 14px 23px;
   border-radius: 8px;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--LightGrayishBlue);
+    transition: all 0.3s;
+  }
 }
 
 .section-replay {
@@ -187,7 +205,7 @@ button:active {
 }
 
 .delete {
-  color: var(--SoftRed);
+  color: var(--SoftRed) !important;
   margin-right: 10px;
   font-size: 16px;
   opacity: 0.5;
@@ -216,4 +234,151 @@ button:active {
 .update .info-response {
   padding: 10px 20px;
   min-height: 80px;
+}
+
+textarea {
+  color: var(--Grayish_Blue);
+}
+
+.increase,
+.decrease {
+  color: var(--LightGrayishBlue) !important;
+  &:hover {
+    color: var(--ModerateBlue) !important;
+  }
+}
+
+@media (max-width: 580px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    max-width: 100vw;
+    padding: 15px;
+    padding-bottom: 0;
+  }
+  .feedback-card {
+    max-width: 732px;
+    width: 100%;
+    /* height: 165px; */
+    background-color: var(--White);
+    margin: 10px 0;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .feedback-score {
+    width: max-content;
+  }
+  .feedback-score label button:nth-child(1) {
+    right: 10px;
+  }
+  .feedback-score label button:nth-child(3) {
+    left: 10px;
+  }
+
+  .feedback-score label {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .feedback-score input {
+    background-color: var(--Very_light_gray);
+    color: var(--ModerateBlue);
+    font-weight: 500;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    border: none;
+    cursor: default;
+  }
+  .feedback-description {
+    margin: 0;
+  }
+  .info-details p {
+    font-size: 16px;
+  }
+
+  .reply-btn,
+  .edit,
+  .delete {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--ModerateBlue);
+  }
+  .reply-section {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+  }
+
+  .section-replay {
+    margin-left: 0;
+    padding-left: 15px;
+  }
+  .info-details {
+    margin: 0;
+  }
+  .containerSend {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .containerSend > .user-main-card {
+    width: 100%;
+
+    padding: 0 15px;
+  }
+
+  .containerSend > .user-main-card > .reply-feedback {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 20px;
+    min-height: 200px;
+    margin-bottom: 50px;
+  }
+  .info-details.replay-info {
+    position: absolute;
+    left: 20px;
+    width: 42px;
+    bottom: 10px;
+  }
+  .reply-feedback :nth-child(3) {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+  }
+  .reply-feedback :nth-child(3) > button {
+    padding: 0;
+  }
+  textarea#txtValueSend {
+    height: 100px;
+  }
+  .reply-response,
+  #btnSend {
+    background-color: var(--ModerateBlue);
+    color: var(--White);
+    padding: 13px 30px;
+    border-radius: 8px;
+    border: none;
+    text-transform: uppercase;
+  }
 }
