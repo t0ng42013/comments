@@ -248,6 +248,83 @@ textarea {
   }
 }
 
+.message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0009;
+  overflow-y: hidden;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.message-container{
+  width: 350px;
+  background-color: var(--Very_light_gray);
+  color: var(--Grayish_Blue);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 4px 4px 2px #999;
+}
+
+.message-container h2{
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--Dark_blue);
+}
+.message-container p{
+  line-height: 1.5;
+  font-size: 17px;
+}
+.message-confirm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px ;
+}
+.message-confirm button{
+  border: none;
+  background-color: transparent;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--Very_light_gray);
+   border-radius: 10px;
+   box-shadow: 2px 2px 2px #555;
+}
+
+.message-confirm .message-cancel{
+  background-color: var(--Grayish_Blue);
+    &:hover{
+    background-color: var(--Light_gray);
+    color: var(--Grayish_Blue);
+    transition: all .3s;
+  }
+  &:active{
+    transform: translateY(3px);
+
+  }
+}
+.message-confirm .message-delete{
+  background-color: var(--SoftRed);
+  &:hover{
+    background-color: var(--PaleRed);
+    transition: all .3s;
+  }
+  &:active{
+    transform: translateY(3px);
+
+  }
+}
+/* .message-container h2 */
+
 @media (max-width: 580px) {
   body {
     padding: 0;

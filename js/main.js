@@ -1,6 +1,7 @@
 import { findMaxId } from "../utils/idSearch.js";
 import { renderStore } from "../utils/renderStore.js";
 import { createStore } from "./createStore.js";
+import { modal } from "./modal.js";
 import { reducer } from "./reducer.js";
 import { renderUI } from "./renderIU.js";
 import { request } from "./request.js";
@@ -130,18 +131,31 @@ export const init = async () => {
         });
       })
     );
-
+    
     const botonDelete = document.querySelectorAll(".delete");
+   
     botonDelete.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const ID = parseInt(btn.getAttribute("data-id"));
-        const action = {
+        let modalContainer = document.createElement("div");
+        document.body.appendChild(modalContainer);
+        modalContainer.innerHTML += modal();
+        setTimeout(() => {       
+        modalContainer.remove();
+        }, 3000);
+        const mDelete = document.querySelector(".message-delete").addEventListener("click",() => {
+           const ID = parseInt(btn.getAttribute("data-id"));
+            const action = {
           type: "deleteComment",
           payload: {
             id: ID,
           },
         };
-        renderStore(action, store, addListener);
+        modalContainer.remove();
+          renderStore(action, store, addListener)
+        });
+        const mCancel = document.querySelector(".message-cancel").addEventListener("click", () =>modalContainer.remove());
+      
+       
       });
     });
     score(store) 
