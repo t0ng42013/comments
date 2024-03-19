@@ -327,13 +327,30 @@ textarea {
   color: var(--ModerateBlue);
   font-weight: 500;
 }
+.calc__foot {
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.calc__foot img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.calc__foot::selection{
+background-color: transparent;
+}
 
 @media (max-width: 580px) {
   body {
     padding: 0;
   }
   .container {
-    max-width: 100vw;
     padding: 15px;
     padding-bottom: 0;
   }
