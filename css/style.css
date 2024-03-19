@@ -323,7 +323,10 @@ textarea {
 
   }
 }
-/* .message-container h2 */
+.feedback-description p > span{
+  color: var(--ModerateBlue);
+  font-weight: 500;
+}
 
 @media (max-width: 580px) {
   body {

@@ -76,7 +76,7 @@ const renderReplyButton = (id, username) => `
 `;
 
 const renderFeedbackCardReply = (reply, currentUser) => {
-  const { content, createdAt, score, user, id } = reply;
+  const { content, createdAt, score, user, id,replyingTo } = reply;
   const ruta = user.image.webp.replace("/images", "/assets");
   const isCurrentUser = currentUser === user.username;
 
@@ -107,7 +107,12 @@ const renderFeedbackCardReply = (reply, currentUser) => {
           </div>
         </div>
         <div class="feedback-description">
-          <p>${content}</p>
+        ${
+          replyingTo === undefined
+            ? `<p>${content}</p>`
+            : `<p><span>@${replyingTo}</span> ${content}</p>`
+        }
+          
         </div>
       </div>
     </div>
@@ -126,7 +131,7 @@ export const templateCommentsSend = () => {
               <img src="./assets/avatars/image-juliusomo.webp" alt="">
           </div>
           
-              <textarea id="txtValueSend" class="info-response" placeholder="add comment...">Great work! I haven't got much to add beyond what's already been said.but i just wanted to say congrats! You've done an excellent job on this!func  </textarea>
+              <textarea id="txtValueSend" class="info-response" placeholder="Add comment..."></textarea>
 
          
           <div >
@@ -144,10 +149,10 @@ export const templateResponseUser = (dUser) => {
 
   switch (user) {
     case "amyrobson":
-      switchResult = "yeah, the attention to detail with the design is";
+      switchResult = "yeah, the attention to detail with the design is...";
       break;
     case "maxblagun":
-      switchResult = "yeah, the ";
+      switchResult = " ";
       break;
     case "ramsesmiron":
       switchResult = "just to add another point ";
@@ -162,7 +167,7 @@ export const templateResponseUser = (dUser) => {
       <div class="info-details replay-info">
         <img src="./assets/avatars/image-juliusomo.webp" alt="foto perfil" />
       </div>
-      <textarea id="${user}" class="info-response">@${user},${switchResult} 
+      <textarea placeholder="Add comment..." id="${user}" class="info-response">@${user},${switchResult} 
       </textarea>
       <div>
         <button class="reply-response">REPLY</button>

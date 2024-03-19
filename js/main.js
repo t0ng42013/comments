@@ -27,6 +27,7 @@ export const init = async () => {
         const USER = comment.getAttribute("data-user");
         const contenedorRespuesta = document.querySelector(`.contenedor${ID}`);
 
+          
         if (!contenedorRespuesta.children.length) {
           // Si el contenedor de respuesta no tiene hijos (es decir, está vacío), ejecuta este bloque de código.
           // Aquí se comprueba si el contenedor de respuesta está vacío.
@@ -44,6 +45,9 @@ export const init = async () => {
               contenedorRespuesta.querySelector(".reply-response");
             btnComment.addEventListener("click", () => {
               let info = document.getElementById(USER).value;
+              if (document.querySelector(".txtAValue").value) return;
+              info = info.replace(/@[^ ]+/, "");
+
             
               const action = {
                 type: "addReply",
@@ -60,7 +64,7 @@ export const init = async () => {
                     },
                     username: "juliusomo",
                   },
-                  replyingTo: [],
+                  replyingTo: USER,
                 },
               };
 
@@ -72,6 +76,7 @@ export const init = async () => {
             btnReplies.addEventListener("click", () => {
               let info = document.getElementById(USER).value;
               
+              if (info.trim() === "") return;
               const action = {
                 type: "addReplyingTo",
                 payload: {
@@ -110,19 +115,22 @@ export const init = async () => {
         const textValue = contenedorEditar.querySelector(".feedback-description");
        
         const info = textValue.textContent.trim();
+        
         textValue.innerHTML = '';
         textValue.innerHTML = `<textarea class="txtAValue" style="width: 90%; height: 100px; resize: none;">${info}</textarea><button class="reply-btn update-btn reply-response">Update</button>`;
-        
+       
 
         const btnUpdate = document.querySelectorAll(".update-btn");
 
         btnUpdate.forEach((element) => {
           element.addEventListener("click", () => {
+            let info = document.querySelector(".txtAValue").value;
+            if(info.trim()==='')return
             const action = {
               type: "editComment",
               payload: {
                 id: ID,
-                content: document.querySelector(".txtAValue").value,
+                content: info,
                
               },
             };
